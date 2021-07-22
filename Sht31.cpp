@@ -36,7 +36,7 @@ float Sht31::readHumidity(void) {
 void Sht31::reset(void) {
     writeCommand(SHT31_SOFTRESET);
 #ifdef MBED_CONF_RTOS_API_PRESENT
-    ThisThread::sleep_for(10);
+    ThisThread::sleep_for(10ms);
 #else
     wait_us(10*1000);
 #endif
@@ -67,7 +67,7 @@ bool Sht31::readTempHum(void) {
     writeCommand(SHT31_MEAS_HIGHREP);
 
 #ifdef MBED_CONF_RTOS_API_PRESENT
-            ThisThread::sleep_for(20);
+            ThisThread::sleep_for(20ms);
 #else
             wait_ms(20);
 #endif
